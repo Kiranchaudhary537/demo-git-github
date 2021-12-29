@@ -7,7 +7,7 @@ function Header() {
   return (
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+        <div class="container-fluid m-1">
           <a class="navbar-brand" href="/">
             Article
           </a>
@@ -74,7 +74,7 @@ function Header() {
               </li>
             </ul>
             <ul class="navbar-nav sm-icons">
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#">
                   <i class="bi bi-search"></i>
                   <svg
@@ -89,7 +89,7 @@ function Header() {
                   </svg>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#">
                   <i class="bi bi-person"></i>
                   <svg

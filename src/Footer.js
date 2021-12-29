@@ -47,7 +47,7 @@ function Footer() {
                 </p>
               </div>
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 d-flex align-items-center" style={{border:"2px solid solidgrey"}}>
-              <ul class="list-unstyled list-inline text-center " style={{border:"2px solid red"}}>
+              <ul class="list-unstyled list-inline text-center ">
                 <li class="list-inline-item ">
                   <a className="nav-link" href="#">
                     <i className="bi bi-facebook"></i>
@@ -109,7 +109,7 @@ function Footer() {
           </div>
           <div className="footer-copyright text-center py-3">
             © 2020 Copyright:
-            <a href="/"> MDBootstrap.com</a>
+            <a href="/"> Abhiyanta.com</a>
           </div>
         </div>
       </footer>
