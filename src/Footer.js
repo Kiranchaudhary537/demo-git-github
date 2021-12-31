@@ -6,12 +6,12 @@ function Footer() {
   // borderColor:'coral',
   return (
     <>
-      <footer className="page-footer font-small unique-color-dark">
+      <footer className="page-footer font-small unique-color-light bg-dark" style={{border:'5px solid yellow'}}>
         <div style={{ backgroundColor: "#6351ce;" }} />
         <div className="container">
-          <div className="container text-center text-md-left mt-5">
-            <div className="row mt-3">
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <div className="container text-center text-white text-md-left mt-5" >
+            <div className="row mt-3" >
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" style={{border:'2px solid red'}}>
                 <h6 className="text-uppercase font-weight-bold">
                   Company name
                 </h6>
@@ -26,24 +26,24 @@ function Footer() {
                 </p>
               </div>
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 className="text-uppercase font-weight-bold">
+                <h6 className="text-uppercase font-weight-bold text-white bg-dark">
                   Useful links
                 </h6>
                 <hr
-                  className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+                  className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto "
                   style={{ width: "60px;" }}
                 />
                 <p>
-                  <a href="/">Privacy Policy</a>
+                  <a href="/" class="text-white text-decoration-none">Privacy Policy</a>
                 </p>
                 <p>
-                  <a href="/">Terms and Service</a>
+                  <a href="/" class="text-white text-decoration-none">Terms and Service</a>
                 </p>
                 <p>
-                  <a href="/">Site Map</a>
+                  <a href="/" class="text-white text-decoration-none">Site Map</a>
                 </p>
                 <p>
-                  <a href="/">Help</a>
+                  <a href="/" class="text-white text-decoration-none">Help</a>
                 </p>
               </div>
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 d-flex align-items-center" style={{border:"2px solid solidgrey"}}>
@@ -55,7 +55,7 @@ function Footer() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      fill="currentColor"
+                      fill="white"
                       className="bi bi-facebook"
                       viewBox="0 0 16 16"
                     >
@@ -70,7 +70,7 @@ function Footer() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      fill="currentColor"
+                      fill="white"
                       className="bi bi-facebook"
                       viewBox="0 0 16 16"
                     >
@@ -85,22 +85,12 @@ function Footer() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      fill="currentColor"
+                      fill="white"
                       className="bi bi-facebook"
                       viewBox="0 0 16 16"
                     >
                       <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                     </svg>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="btn-floating btn-li mx-1">
-                    <i class="fab fa-linkedin-in"> </i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="btn-floating btn-dribbble mx-1">
-                    <i class="fab fa-dribbble"> </i>
                   </a>
                 </li>
               </ul>
@@ -109,7 +99,7 @@ function Footer() {
           </div>
           <div className="footer-copyright text-center py-3">
             © 2020 Copyright:
-            <a href="/"> Abhiyanta.com</a>
+            <a href="/" className="text-white text-decoration-none"> Abhiyanta.com</a>
           </div>
         </div>
       </footer>

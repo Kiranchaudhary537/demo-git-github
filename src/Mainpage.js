@@ -6,12 +6,12 @@ import Feedback from "./Feedback";
 function Mainpage() {
   return (
     <>
-    <div className="container-fluid">
-        <div className="row">
+    <div className="container-fluid ml-auto mr-auto">
+        <div className="row shadow">
             <Tradingcard/>
         </div>
         <div className="row">
-          <div className="col-lg-8 offset-1">
+          <div className="col-lg-8 ">
               <Article/>
           </div>
           <div className="col-md  my-auto p-3" >

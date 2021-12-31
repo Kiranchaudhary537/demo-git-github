@@ -3,15 +3,17 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Mainpage from "./Mainpage";
+import Articlemain from "./Articlemain";
 
 function App() {
   return (
     // <div className="container">
     // </div>
     <div >
-      <Header />
+      {/* <Header />
       <Mainpage/>
-      <Footer />
+      <Footer /> */}
+      <Articlemain/>
     </div>
   );
 }

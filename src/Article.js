@@ -2,8 +2,10 @@ import React from "react";
 function Article() {
   return (
     <>
+    <div className=" container-fluid shadow m-2 p-3">
       <Articlelink />
       <Articles />
+      </div>
     </>
   );
 }
@@ -11,8 +13,8 @@ export default Article;
 
 function Articlelink() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light text-dark m-1 ">
+      <div >
         <button
           className="navbar-toggler"
           type="button"
@@ -46,17 +48,17 @@ function Articles() {
   return (
     <>
       <div className="container-fluid">
-        <div className="row row-cols-1 row-cols-md-2 g-4">
+        <div className="row row-cols-1 row-cols-md-2 g-4 ">
           <div className="col">
             <div className="card">
               <img
                 src="https://image.shutterstock.com/image-photo/back-light-close-lady-hand-600w-420850261.jpg"
-                className="card-img-top img-fluid"
+                className="card-img-top img-fluid img-thumbnail rounded"
                 alt="..."
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
-                <p className="card-img-top img-fluid img-thumbnail rounded">
+                <p className="card-text img-fluid img-thumbnail rounded">
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
@@ -73,7 +75,7 @@ function Articles() {
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
-                <p className="card-text">
+                <p className="card-text img-fluid img-thumbnail rounded">
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
@@ -90,7 +92,7 @@ function Articles() {
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
-                <p className="card-text">
+                <p className="card-text img-fluid img-thumbnail rounded">
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content.
                 </p>
@@ -106,7 +108,7 @@ function Articles() {
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
-                <p className="card-text">
+                <p className="card-text img-fluid img-thumbnail rounded">
                   This is a longer card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit
                   longer.
@@ -115,7 +117,7 @@ function Articles() {
             </div>
           </div>
         </div>
-        <div className="text-center" >
+        <div className="text-center m-2" >
           <button
             type="button"
             className="btn btn-outline-secondary btn-center"

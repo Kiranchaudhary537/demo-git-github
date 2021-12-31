@@ -5,24 +5,24 @@ function Feedback() {
     <>
     <div className="container-fluid text-center m-3" >
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleFormControlInput1">Email address</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleFormControlTextarea1">Example textarea</label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary m-2">
           Submit
         </button>
       </form>
