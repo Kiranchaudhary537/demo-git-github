@@ -4,18 +4,19 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Mainpage from "./Mainpage";
 import Articlemain from "./Articlemain";
+import Write from "./Write";
+import { BrowserRouter as Router ,Routes, Route, NavLink,Link,Switch } from 'react-router-dom'
+import Feedback from "./Feedback";
 
 function App() {
   return (
-    // <div className="container">
-    // </div>
-    <div >
-      {/* <Header />
+    <div>
+      <Header/>
       <Mainpage/>
-      <Footer /> */}
-      <Articlemain/>
+      <Footer/>
     </div>
-  );
+
+    );
 }
 
 export default App;

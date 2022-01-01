@@ -5,7 +5,7 @@ import Feedback from "./Feedback";
 
 function Mainpage() {
   return (
-    <>
+
     <div className="container-fluid ml-auto mr-auto">
         <div className="row shadow">
             <Tradingcard/>
@@ -20,7 +20,6 @@ function Mainpage() {
           </div>
        </div>
     </div>
-    </>
-  );
+ );
 }
 export default Mainpage;
