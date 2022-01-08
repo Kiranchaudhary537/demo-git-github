@@ -8,9 +8,10 @@
 ![Index page](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/News%20Homepage.jpg)
 ### Article page
 ![Article page](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/Article%20Details.jpg)
+
+### Write part of Website
+![Write](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/Write%20part%20of%20Website.png)
 ### Sign in/ Log in box
 ![Sign in](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/login-signin.png)
 ### After Log in/Sign in
 ![Log in](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/log%20in.png)
-### Write part of Website
-![Write](https://github.com/Kiranchaudhary537/demo-git-github/blob/duplicate/src/Images/Write%20part%20of%20Website.png)
