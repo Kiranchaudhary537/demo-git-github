@@ -3,7 +3,7 @@ import React from "react";
 function Feedback() {
   return (
     <>
-    <div className="container-fluid text-center m-3" >
+    <div className="container-fluid text-center m-3 border border-info" >
       <form>
         <div className="form-group">
           <label for="exampleFormControlInput1">Email address</label>
@@ -15,7 +15,7 @@ function Feedback() {
           />
         </div>
         <div className="form-group">
-          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <label for="exampleFormControlTextarea1">Enter Your Feedback</label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"

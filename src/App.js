@@ -1,22 +1,28 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import Mainpage from "./Mainpage";
-import Articlemain from "./Articlemain";
-import Write from "./Write";
-import { BrowserRouter as Router ,Routes, Route, NavLink,Link,Switch } from 'react-router-dom'
-import Feedback from "./Feedback";
-
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import NoPage from "./pages/NoPage";
+import Header from "./pages/Header";
+import Write from "./pages/Write";
+import Footer from "./pages/Footer";
+import Mainpage from "./pages/Mainpage";
+import Tradingcard from "./pages/Tradingcard";
+import Article from "./pages/Article";
+import Feedback from "./pages/Feedback";
+export default function App() {
   return (
-    <div>
-      <Header/>
-      <Mainpage/>
-      <Footer/>
-    </div>
-
-    );
+    <BrowserRouter>
+   <Header/>
+   <Routes>
+        <Route exact path="/" element={<Layout />}>
+          <Route index element={<Mainpage />} />
+          <Route path="Tradingcard" element={<Tradingcard />} />
+          <Route path="Article" element={<Article />} />
+          <Route path="Feedback" element={<Feedback />} />
+          <Route path="Write" element={<Write />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+   <Footer/>
+   </BrowserRouter>
+  );
 }
-
-export default App;

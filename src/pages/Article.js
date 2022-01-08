@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 function Article() {
   return (
     <>
@@ -28,16 +29,16 @@ function Articlelink() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link className="nav-link active" aria-current="page" to="/">
               Computer Technology
-            </a>
-            <a className="nav-link " href="#">
-            communication system
-            </a>
-            <a className="nav-link" href="#">
-            Embedded system
-            </a>
-            <a className="nav-link disabled">More</a>
+            </Link>
+            <Link className="nav-link " to="/">
+              communication system
+            </Link>
+            <Link className="nav-link" to="/">
+              Embedded system
+            </Link>
+            <Link className="nav-link disabled" to='/'>More</Link>
           </div>
         </div>
       </div>
@@ -50,6 +51,7 @@ function Articles() {
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-2 g-4 ">
           <div className="col">
+        <Link to='ArticleMain' className="text-black text-decoration-none">
             <div className="card">
               <img
                 src="https://cdn.thewire.in/wp-content/uploads/2021/07/14180459/kerala.jpg"
@@ -74,8 +76,10 @@ function Articles() {
                 </p>
               </div>
             </div>
+            </Link>
           </div>
           <div className="col">
+          <Link to='ArticleMain' className="text-black text-decoration-none">
             <div className="card">
               <img
                 src="https://cdn.thewire.in/wp-content/uploads/2021/12/31105849/mat-napo-O3jiPcvNN8M-unsplash-1536x1046.jpg"
@@ -96,8 +100,10 @@ function Articles() {
                 </p>
               </div>
             </div>
+            </Link>
           </div>
           <div className="col">
+          <Link to='ArticleMain' className="text-black text-decoration-none">
             <div className="card">
               <img
                 src="https://cdn.thewire.in/wp-content/uploads/2021/12/26083859/51775389630_cb1cf47762_k-1536x944.jpg"
@@ -120,8 +126,10 @@ function Articles() {
                 </p>
               </div>
             </div>
+            </Link>
           </div>
           <div className="col">
+          <Link to='ArticleMain' className="text-black text-decoration-none">
             <div className="card">
               <img
                 src="https://cdn.thewire.in/wp-content/uploads/2021/03/23085642/The_Indian_Space_Research_Organisation_ISRO_Chairman_Dr._K._Sivan_addressing_a_press_conference_on_issues_related_to_Department_of_Space_in_New_Delhi_on_August_28_2018-1536x1049.jpg"
@@ -147,6 +155,7 @@ function Articles() {
                 </p>
               </div>
             </div>
+            </Link>
           </div>
         </div>
         <div className="text-center m-2">
