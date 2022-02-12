@@ -208,26 +208,77 @@ function Footer() {
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                HELP
+              <h5 class="modal-title" id="exampleModalLabel" >
+                We would love to hear from you.
               </h5>
-              <button
+                <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
-              >
+                >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body">
+              <form class="form my-3 mr-2 ml-2">
+                <div class="form-row">
+                  <div class="form-group col-sm">
+                    {" "}
+                    <label for="exampleInputEmail1">Enter Name</label>{" "}
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="First"
+                    />{" "}
+                  </div>
+                  <div class="form-group col-sm">
+                    {" "}
+                    <label class="sm-lbl" for="exampleInputEmail1">
+                      Enter Name
+                    </label>{" "}
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Last"
+                    />{" "}
+                  </div>
+                </div>
+                <div class="form-group">
+                  {" "}
+                  <label for="exampleInputEmail1">Enter Email</label>{" "}
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder=""
+                  />{" "}
+                </div>
+                <div class="form-group">
+                  {" "}
+                  <label for="exampleFormControlTextarea1">
+                    Your Query or Question
+                  </label>{" "}
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="2"
+                  ></textarea>{" "}
+                </div>
+              </form>
+            </div>
             <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
                 data-dismiss="modal"
               >
-                Close
+                Submit
               </button>
             </div>
           </div>

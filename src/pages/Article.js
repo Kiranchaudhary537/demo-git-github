@@ -1,10 +1,11 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import data from './ar';
 function Article() {
   return (
     <>
       <div className=" container-fluid shadow m-2 p-3">
-        <Articlelink />
+        {/* <Articlelink />  */}
         <Articles />
       </div>
     </>
@@ -12,42 +13,43 @@ function Article() {
 }
 export default Article;
 
-function Articlelink() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light text-dark m-1 ">
-      <div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link className="nav-link active" aria-current="page" to="/">
-              Computer Technology
-            </Link>
-            <Link className="nav-link " to="/">
-              communication system
-            </Link>
-            <Link className="nav-link" to="/">
-              Embedded system
-            </Link>
-            <Link className="nav-link disabled" to='/'>More</Link>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-}
+// function Articlelink() {
+//   return (
+//     <nav className="navbar navbar-expand-lg navbar-light bg-light text-dark m-1 ">
+//       <div>
+//         <button
+//           className="navbar-toggler"
+//           type="button"
+//           data-bs-toggle="collapse"
+//           data-bs-target="#navbarNavAltMarkup"
+//           aria-controls="navbarNavAltMarkup"
+//           aria-expanded="false"
+//           aria-label="Toggle navigation"
+//         >
+//           <span className="navbar-toggler-icon"></span>
+//         </button>
+//         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+//           <div className="navbar-nav">
+//             <Link className="nav-link " aria-current="page" to="/">
+//               Computer Technology
+//             </Link>
+//             <Link className="nav-link " to="/">
+//               communication system
+//             </Link>
+//             <Link className="nav-link" to="/">
+//               Embedded system
+//             </Link>
+//              <Link className="nav-link disabled" to='/'>More</Link>
+//           </div>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
 function Articles() {
   return (
-    <>
+    <>  
+      
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-2 g-4 ">
           <div className="col">
@@ -57,6 +59,7 @@ function Articles() {
                 src="https://cdn.thewire.in/wp-content/uploads/2021/07/14180459/kerala.jpg"
                 className="card-img-top img-fluid img-thumbnail rounded"
                 alt="..."
+                
               />
               <div className="card-body">
                 <h5 className="card-title">

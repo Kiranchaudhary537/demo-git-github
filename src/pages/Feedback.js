@@ -3,7 +3,9 @@ import React from "react";
 function Feedback() {
   return (
     <>
-    <div className="container-fluid text-center m-3 " >
+    <div className="container-fluid text-center m-3 border" >
+      <h3>Give Your Feedback</h3>
+      <hr/>
       <form>
         <div className="form-group">
           <label for="exampleFormControlInput1">Email address</label>
