@@ -8,7 +8,8 @@ import Mainpage from "./pages/Mainpage";
 import Tradingcard from "./pages/Tradingcard";
 import Article from "./pages/Article";
 import Feedback from "./pages/Feedback";
-import ArticleMain from "./pages/ArticleMain";
+import Articlemain from "./pages/Articlemain";
+import { auth,provider } from "./firebase";
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,11 +21,13 @@ export default function App() {
           <Route path="Article" element={<Article />} />
           <Route path="Feedback" element={<Feedback />} />
           <Route path="Write" element={<Write />} />
-          <Route path="ArticleMain" element={<ArticleMain />} />
+          <Route path="Articlemain/:type" element={<Articlemain/>} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
    <Footer/>
    </BrowserRouter>
+ 
+  
   );
 }
