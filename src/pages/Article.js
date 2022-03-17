@@ -73,7 +73,7 @@ function Articles() {
   const dbRef = ref(getDatabase());
   useEffect(()=>{
     
-    get(child(dbRef, `Aricles`)).then((snapshot) => {
+    get(child(dbRef, `Article`)).then((snapshot) => {
       if (snapshot.exists()) {
         var items = [];
         // console.log(snapshot.val());
@@ -163,11 +163,11 @@ function Articles() {
   const [currentPage, setCurrentPage] = useState(1);
 
 const goToNextPage=()=> {
-  setCurrentPage((page) => page + 5);
+  setCurrentPage((page) => page + 1);
   
 }
 const goToPreviousPage=()=> {
-   setCurrentPage((page) => page - 5);
+   setCurrentPage((page) => page - 1);
 }
 
 const changePage=(event)=> {
@@ -253,7 +253,7 @@ const getPaginationGroup = () => {
         <div className="pagination">
       
       <button
-        // onClick={() =>{showPrevious({ item: list[0] })}}
+        onClick={goToPreviousPage}
         className={`btn btn-secondary btn-center ${currentPage === 1 ? 'disabled' : ''}`}
       >
         prev
@@ -272,8 +272,8 @@ const getPaginationGroup = () => {
       ))}
       
       <button
-        // onClick={()=>showNext({ item: list[list.length - 1] })}
-        className={`btn btn-secondary btn-center ${list.length<4 ? 'disabled' : ''}`}
+        onClick={goToNextPage}
+        className={`btn btn-secondary btn-center ${currentPage*4>list.length ? 'disabled' : ''}`}
       >
         next
       </button>

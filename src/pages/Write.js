@@ -5,7 +5,7 @@ import { getDownloadURL, uploadBytesResumable,ref } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import  {db}  from "../firebase";
 import { collection, addDoc, onSnapshot} from "firebase/firestore";
-import {  getDatabase,set } from "firebase/database";
+import { getDatabase,ref as ref1,push, set,child } from "firebase/database";
 // import {getDatabase} from "../firebase"
 import { v4 as uuid } from 'uuid';
 import { async } from "@firebase/util";
@@ -18,33 +18,45 @@ function Write() {
   //   });
   //  }
   //  );
+
   const auth = getAuth();
   const user = auth.currentUser;
   const [progress,setProgress]=useState(0);
   const [progress1,setProgress1]=useState(0);
+  const [title,setTitle]=useState("");
   const [fileurl,setFileurl]=useState("");
-  const [Imageurl,setImageurl]=useState("");
+  const [imageurl,setImageurl]=useState("");
   const [date,setDate]=useState();
-  const [files, setFiles] = useState([])
-  const database = getDatabase();
+  const [filedata,setFiledata]=useState("");
+  const [files, setFiles] = useState([]);
+  const db = getDatabase();
+  let fileReader;
+  
+  const handleFileRead = (e) => {
+    const content = fileReader.result;
+    setFiledata(content);
+  };
+  
+  const handleFileChosen = (file) => {
+    fileReader = new FileReader();
+    fileReader.onloadend = handleFileRead;
+    fileReader.readAsText(file);
+  };
   const formHandler=(e)=>{
     e.preventDefault();
-    const image=e.target[0].files[0];
-    uploadfiles(image);
-  };
-  const formHandler1=(e)=>{
-    e.preventDefault();
-    const file=e.target[0].files[0];
-    // uploadfiles1(file);
+    const image=e.target[1].files[0];
+    const file=e.target[2].files[0];
+    setDate(new Date());
+    uploadimages(image);
+    uploadfiles(file);
     uploadfilestoDatabase(file);
   };
  
-  
-  const uploadfiles=(file)=>{
-   if(!file) return;
+  const uploadimages=(image)=>{
+   if(!image) return;
    console.log("uploadfile");
-   const storageRef=ref(storage,`/files/${file.name}`);
-   const uploadTask=uploadBytesResumable(storageRef,file);
+   const storageRef=ref(storage,`/images/${image.name}`);
+   const uploadTask=uploadBytesResumable(storageRef,image);
    uploadTask.on("state_changed",(snapshot)=>{
      const prog=Math.round(
        (snapshot.bytesTransferred/snapshot.totalBytes)*100
@@ -58,7 +70,7 @@ function Write() {
    }, );
  
   }
-  const uploadfiles1=(file)=>{
+  const uploadfiles=(file)=>{
    if(!file) return;
    console.log("uploadfile");
    const storageRef=ref(storage,`/files/${file.name}`);
@@ -74,17 +86,49 @@ function Write() {
      )
      
    }, );
+ 
   }
-  const uploadfilestoDatabase=async()=>{
-   console.log("uploadfiletodatabase");
-  //  console.log(db);
-   setDate(new Date());
-  //  console.log(date);
-  console.log("fileurl:" +fileurl);
-  console.log("iamgeurl: "+Imageurl);
-  const collectionRef=collection(db,"Articles");
-   await addDoc(collectionRef,{FileUrl:fileurl,imageUrl:Imageurl,Date:date});
-   console.log("collecton" +collectionRef);
+  console.log(fileurl,imageurl,title,date);
+  const uploadfilestoDatabase=(file)=>{
+    if(!file) return;
+      set(ref1(db, 'Article/' + date), {
+        title:title,
+        images:imageurl,
+        description:filedata,
+        date:date,
+        username:user.displayName,
+        fileurl:fileurl
+      });
+      console.log("ok");
+  };
+  // const uploadfilestoDatabase=async(file)=>{
+  //   if(!file) return;
+  //   console.log("enter");
+  //   // Get a key for a new Post.
+  //   const newPostKey = push(ref1(db), 'Article').key;
+  //   // console.log(newPostKey);
+  //      set(ref1(db,`Article/`+newPostKey), {
+  //     fileurl:fileurl,
+  //     images:imageurl,
+  //     date:date,
+  //     title:title,
+  //     username:user.displayName,
+  //     description:filedata,
+  //   }
+  //   );
+    // const newPost=ref(db,'Article').push();
+    // console.log(newPost);
+  // };
+  // const uploadfilestoDatabase=async()=>{
+  //  console.log("uploadfiletodatabase");
+  // //  console.log(db);
+  //  setDate(new Date());
+  // //  console.log(date);
+  // console.log("fileurl:" +fileurl);
+  // console.log("iamgeurl: "+Imageurl);
+  // const collectionRef=collection(db,"Articles");
+  //  await addDoc(collectionRef,{FileUrl:fileurl,imageUrl:Imageurl,Date:date});
+  //  console.log("collecton" +collectionRef);
   //  console.log(fileurl);
 //    db.collection("cities").doc("LA").set({
 //         id: uuid(),
@@ -111,7 +155,7 @@ function Write() {
 //     console.error("Error adding document: ", error);
 // })
 
-  };
+  // };
   // const storage = getStorage();
   // const storageRef = ref(storage, 'some-child');
   // const [image , setImage] = useState('');
@@ -136,6 +180,7 @@ function Write() {
   // };
   return ( 
     <>
+    
     <div className="row">
     <section id="content" className="col-md-6 offset-1 shadow border" >
     <div className="container-fluid">
@@ -146,8 +191,10 @@ function Write() {
           <input
             className="form-control"
             id="title"
-            size={25}
+            type="text"
             max="50"
+            placeholder="Enter Title Here"
+            onChange={(e)=>setTitle(e.target.value)}
           >
     </input>
     <label for="exampleFormControlFile1">Upload Your Image</label>
@@ -156,12 +203,10 @@ function Write() {
       type="file"
       className="form-control-file"
       id="exampleFormControlFile1"
+      
       // onChange={(e)=>{setImage(e.target.files[0])}}
     />
-     <button type="submit"  className="btn btn-secondary m-2">Submit</button>
-  
-  </form>
-  <form  onSubmit={formHandler1}>
+    
   <div className="w-100"></div>
   <div className="w-100"></div>
   <label for="exampleFormControlFile1">Upload Your file</label>
@@ -170,14 +215,15 @@ function Write() {
       type="file"
       className="form-control-file"
       id="exampleFormControlFile2"
-      o
+      accept='.md'
+      onChange={e => handleFileChosen(e.target.files[0])}
     />
       <button type="submit"  className="btn btn-secondary m-2">Submit</button>
   
   </form>
   </div>
  {progress!==0 ?
-  <h3>Image uploading{" "}{progress}%{""}File uploading{" "}{progress1}%</h3>
+  <h3>Image uploading{" "}{progress}%{"\n"}File uploading{" "}{progress1}%</h3>
 :
  <h3> </h3>
 }

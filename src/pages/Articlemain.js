@@ -17,7 +17,7 @@ const Articlemain=(props)=> {
     console.log(key);
     const dbRef = ref(getDatabase());
     useEffect(()=>{
-    get(child(dbRef, `Aricles/${key}`)).then((snapshot) => {
+    get(child(dbRef, `Article/${key}`)).then((snapshot) => {
       if (snapshot.exists()) {
         setTitle(snapshot.val().title);
         setImages(snapshot.val().images);

@@ -8,18 +8,40 @@ import { getDatabase,ref, onValue,child, get,query,orderByChild,limitToLast } fr
 import { v4 as uuid } from 'uuid';
 import { async } from "@firebase/util";
 import data from './ar';
+// import { MathJax, MathJaxContext } from "better-react-mathjax";
+import MathJax, { Html } from 'react-mathjax3'
+import sample from './sample.tex'
+// const config = {
+//   loader: { load: ["[tex]/html"] },
+//   tex: {
+//     packages: { "[+]": ["html"] },
+//     inlineMath: [
+//       ["$", "$"],
+//       ["\\(", "\\)"]
+//     ],
+//     displayMath: [
+//       ["$$", "$$"],
+//       ["\\[", "\\]"
+//     ]
+//     ]
+//   }
+// };
+
+
+
+
+
 let preview=data.roles[0].description.split(" ");
 let previewdata=preview.slice(0,40).join(" ");
 const data1=data.roles[0];
+
 function Tradingcard() {
-  
   const [title,setTitle]=useState("");
   const [images,setImages]=useState("");
   const [description,setDescription]=useState("");
   const dbRef = ref(getDatabase());
   const db = getDatabase();
   console.log(dbRef);
- 
   // const dbRef1=database.ref("Aricles");
   // console.log(dbRef1);
   useEffect(()=>{
@@ -64,48 +86,50 @@ function Tradingcard() {
   //  function enter(){
   //    histroy('./Articlemain/data');
   //  }
-  return (
- <> 
-{/* <div className="container-fluid" >
-      <Link  to={{
-                    pathname: `Articlemain/${title}`,
-                    state: {
-                      data:`data1`
-                    },
-                  }}
-          className="text-black text-decoration-none"
-        >
-          <div className="card mb-3">
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img id="imagetradingcard"
-                  src={images}
-                  className="img-fluid rounded-start img-thumbnail"
-                  alt="image"
-                />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title img-fluid img-thumbnail rounded">
-                    {title}
-                  </h5>
-                  <p className="card-text">
-                  <div dangerouslySetInnerHTML={{__html:previewdata}}></div>
-                  {". . . . . ."}
-                  </p>
-                  <p className="card-text">
-                    <small className="text-muted">
-                     {data.roles[0].date}
-                    </small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </div> */}
+  // <div className="container-fluid" >
+  //       <Link  to={{
+//                     pathname: `Articlemain/${title}`,
+//                     state: {
+//                       data:`data1`
+//                     },
+//                   }}
+//           className="text-black text-decoration-none"
+//         >
+//           <div className="card mb-3">
+//             <div className="row g-0">
+//               <div className="col-md-4">
+//                 <img id="imagetradingcard"
+//                   src={images}
+//                   className="img-fluid rounded-start img-thumbnail"
+//                   alt="image"
+//                 />
+//               </div>
+//               <div className="col-md-8">
+//                 <div className="card-body">
+//                   <h5 className="card-title img-fluid img-thumbnail rounded">
+//                     {title}
+//                   </h5>
+//                   <p className="card-text">
+//                   <div dangerouslySetInnerHTML={{__html:previewdata}}></div>
+//                   {". . . . . ."}
+//                   </p>
+//                   <p className="card-text">
+//                     <small className="text-muted">
+//                      {data.roles[0].date}
+//                     </small>
+//                   </p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </Link>
+//       </div> 
+ 
+//  <NavLink to={'./ArticleMain'} data1={data1} className="text-black text-decoration-none">  
+//  </NavLink> 
+return (
+<> 
      <div className="container-fluid" >
-         {/* <NavLink to={'./ArticleMain'} data1={data1} className="text-black text-decoration-none">  */}
         <Link  to={{
                     pathname: `Articlemain/${title}`,
                     state: {
@@ -141,9 +165,8 @@ function Tradingcard() {
               </div>
             </div>
           </div>
-        {/* </NavLink> */}
         </Link>
-      </div>
+      </div> 
     </>
   );
 };
