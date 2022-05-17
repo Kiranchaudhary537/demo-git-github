@@ -17,9 +17,9 @@ export default function App() {
    <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<Mainpage />} />
-          <Route path="Tradingcard" element={<Tradingcard />} />
+          {/* <Route path="Tradingcard" element={<Tradingcard />} /> */}
           <Route path="Article" element={<Article />} />
-          <Route path="Feedback" element={<Feedback />} />
+          {/* <Route path="Feedback" element={<Feedback />} /> */}
           <Route path="Write" element={<Write />} />
           <Route path="Articlemain/:type" element={<Articlemain/>} />
           <Route path="*" element={<NoPage />} />

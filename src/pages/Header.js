@@ -11,12 +11,16 @@ import {
   isSignInWithEmailLink, signInWithEmailLink
 } from "firebase/auth";
 import { authentication } from "../firebase";
+import {db} from "../firebase";
+import { getDatabase,ref,push, onValue,child, get,query,orderByChild,limitToLast, Database } from "firebase/database";
 
 function Header() {
   
   const auth = getAuth();
   const user = auth.currentUser;
   const [email,setEmail]=useState("");
+  const [searchword,setSearchword]=useState("");
+  const [list, setList] =  useState([]);
   const signInWithGoogle = () => {
     
     const provider = new GoogleAuthProvider();
@@ -39,8 +43,33 @@ function Header() {
   };
   const givealert=()=>{
     alert("please check Login");
-  }
-  return (
+  };
+  // const Searchdata=(searchtitle)=>{
+  //   const dbRef = ref(getDatabase());
+  //   // useEffect(()=>{
+  //     get(child(dbRef, `Article`)).then((snapshot) => {
+  //       if (snapshot.exists()) {
+  //         var items = [];
+  //         snapshot.forEach(function(doc) {
+  //                     console.log(doc.val());
+                     
+  //                     if((doc.val().title.includes(searchtitle))===true)
+  //                     {
+  //                       items.push({ key: doc.key, ...doc.val() });
+  //                     }
+  //       });
+  //       setList(items);
+  //      }
+  //      else {
+  //         console.log("No data available");
+  //       }
+  //     }).catch((error) => {
+  //       console.error(error);
+  //     });
+  //   // },[]);
+  //   Searchdata = function(){};
+  // };
+    return (
     <nav
       className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
       id="ftco-navbar"
@@ -88,7 +117,7 @@ function Header() {
             </li>
             <li className="nav-item">
             { email.length <= 0?
-              <Link onClick={givealert} to="Write" className="nav-link text-white">
+              <Link onClick={givealert} to className="nav-link text-white">
                 Write
               </Link>
               : 
@@ -106,6 +135,7 @@ function Header() {
               id="search"
               className="form-control"
               placeholder="Search Article"
+              onChange={(e)=>setSearchword(e.target.value)}
             />
             <button type="submit"  className="input-group-addon btn btn-dark">
               <i className="fa fa-search"></i>

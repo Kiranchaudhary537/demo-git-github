@@ -26,8 +26,8 @@ function Write() {
   const [title,setTitle]=useState("");
   const [fileurl,setFileurl]=useState("");
   const [imageurl,setImageurl]=useState("");
-  const [date,setDate]=useState();
-  const [filedata,setFiledata]=useState("");
+  const [date,setDate]=useState("");
+  const [filedata,setFiledata]=useState();
   const [files, setFiles] = useState([]);
   const db = getDatabase();
   let fileReader;
@@ -46,16 +46,27 @@ function Write() {
     e.preventDefault();
     const image=e.target[1].files[0];
     const file=e.target[2].files[0];
-    setDate(new Date());
+    setDate(new Date().toISOString());
+    let a=new Date();
+    let day=a.getDate();
+    let month=a.getUTCMonth();
+    let year=a.getFullYear();
+    let hh=a.getHours();
+    let mm=a.getMinutes();
+    let ss=a.getSeconds();
+    let d=`${year}/${month}/${day}/${hh}/${mm}/${ss}`;
+    setDate(`${new Date().toISOString().replace(/[:.-]/g,'')}`);
+
     uploadimages(image);
     uploadfiles(file);
-    uploadfilestoDatabase(file);
+    
   };
  
   const uploadimages=(image)=>{
    if(!image) return;
    console.log("uploadfile");
-   const storageRef=ref(storage,`/images/${image.name}`);
+   console.log(user.uid);
+   const storageRef=ref(storage,`images/${user.uid}/${image.name}`);
    const uploadTask=uploadBytesResumable(storageRef,image);
    uploadTask.on("state_changed",(snapshot)=>{
      const prog=Math.round(
@@ -73,13 +84,14 @@ function Write() {
   const uploadfiles=(file)=>{
    if(!file) return;
    console.log("uploadfile");
-   const storageRef=ref(storage,`/files/${file.name}`);
+   const storageRef=ref(storage,`files/${user.ufid}/${file.name}`);
    const uploadTask=uploadBytesResumable(storageRef,file);
    uploadTask.on("state_changed",(snapshot)=>{
      const prog=Math.round(
        (snapshot.bytesTransferred/snapshot.totalBytes)*100
      );
      setProgress1(prog);
+     uploadfilestoDatabase(file);
    },(err)=>alert(err),
    ()=>{
      getDownloadURL(uploadTask.snapshot.ref).then((url)=>setFileurl(url)
@@ -91,15 +103,15 @@ function Write() {
   console.log(fileurl,imageurl,title,date);
   const uploadfilestoDatabase=(file)=>{
     if(!file) return;
-      set(ref1(db, 'Article/' + date), {
+      set(ref1(db, `Article/${user.uid}` + date), {
         title:title,
         images:imageurl,
         description:filedata,
         date:date,
         username:user.displayName,
         fileurl:fileurl
-      });
-      console.log("ok");
+      },alert("Your file successfully uploaded"));
+      
   };
   // const uploadfilestoDatabase=async(file)=>{
   //   if(!file) return;
